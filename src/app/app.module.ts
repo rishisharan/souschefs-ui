@@ -11,6 +11,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AddItemComponent } from './components/add-item/add-item.component';
+import { ShowItemsComponent } from './components/show-items/show-items.component';
+import { ItemDetailsComponent } from './components/item-details/item-details.component';
 
 
 
@@ -19,6 +22,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AppComponent,
     HomeComponent,
     AboutComponent,
+    AddItemComponent,
+    ShowItemsComponent,
+    ItemDetailsComponent,
   ],
   imports: [
    
