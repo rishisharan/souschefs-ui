@@ -14,7 +14,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { ShowItemsComponent } from './components/show-items/show-items.component';
 import { ItemDetailsComponent } from './components/item-details/item-details.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { BoardAdminComponent } from './components/board-admin/board-admin.component';
+import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component';
+import { BoardUserComponent } from './components/board-user/board-user.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 
 @NgModule({
@@ -25,9 +31,15 @@ import { ItemDetailsComponent } from './components/item-details/item-details.com
     AddItemComponent,
     ShowItemsComponent,
     ItemDetailsComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    BoardAdminComponent,
+    BoardModeratorComponent,
+    BoardUserComponent,
   ],
   imports: [
-   
+
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -38,7 +50,7 @@ import { ItemDetailsComponent } from './components/item-details/item-details.com
     MatCardModule,
     MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [ authInterceptorProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
