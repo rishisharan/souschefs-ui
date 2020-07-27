@@ -20,7 +20,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
-import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 
 @NgModule({
@@ -41,6 +41,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
   imports: [
 
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,

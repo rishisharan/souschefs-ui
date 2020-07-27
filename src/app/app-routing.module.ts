@@ -5,6 +5,12 @@ import { AboutComponent } from './about/about.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { ItemDetailsComponent } from './components/item-details/item-details.component';
 import { ShowItemsComponent } from './components/show-items/show-items.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -13,7 +19,12 @@ const routes: Routes = [
   { path: 'addItem', component: AddItemComponent },
   { path: 'itemDetails/: id', component: ItemDetailsComponent },
   { path: 'showItems', component: ShowItemsComponent },
-
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'user', component: BoardUserComponent },
+  { path: 'mod', component: BoardModeratorComponent },
+  { path: 'admin', component: BoardAdminComponent }
 ];
 
 @NgModule({
