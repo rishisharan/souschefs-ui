@@ -7,43 +7,43 @@ import { ItemService } from 'src/app/services/item.service';
 })
 export class AddItemComponent implements OnInit {
 
-  item = {
-    title: '',
-    description: '',
-    published: false
-  };
-
-  submitted = false;
-
-  constructor( private itemService: ItemService ) { }
-
+//   item = {
+//     title: '',
+//     description: '',
+//     published: false
+//   };
+//
+//   submitted = false;
+//
+//   constructor( private itemService: ItemService ) { }
+//
   ngOnInit(): void {
   }
 
-  saveTutorial(): void {
-    const data = {
-      title: this.item.title,
-      description: this.item.description
-    };
-
-    this.itemService.create(data)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.submitted = true;
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
-  newItem(): void {
-      this.submitted = false;
-      this.item = {
-        title: '',
-        description: '',
-        published: false
-      };
-  }
+//   saveTutorial(): void {
+//     const data = {
+//       title: this.item.title,
+//       description: this.item.description
+//     };
+//
+//     this.itemService.create(data)
+//       .subscribe(
+//         response => {
+//           console.log(response);
+//           this.submitted = true;
+//         },
+//         error => {
+//           console.log(error);
+//         });
+//   }
+//
+//   newItem(): void {
+//       this.submitted = false;
+//       this.item = {
+//         title: '',
+//         description: '',
+//         published: false
+//       };
+//   }
 
 }

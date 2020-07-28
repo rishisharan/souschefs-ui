@@ -16,54 +16,54 @@ export class ShowItemsComponent implements OnInit {
   constructor( private itemService: ItemService ) { }
 
   ngOnInit(): void {
-      this.retrieveItems();
+//       this.retrieveItems();
   }
 
-  retrieveItems(): void {
-      this.itemService.getAll()
-        .subscribe(
-          data => {
-            this.items = data;
-            console.log(data);
-          },
-          error => {
-            console.log(error);
-          });
-    }
-
-    refreshList(): void {
-      this.retrieveItems();
-      this.currentItem = null;
-      this.currentIndex = -1;
-    }
-
-    setActiveItems(items, index): void {
-      this.currentItem = items;
-      this.currentIndex = index;
-    }
-
-    removeAllItems(): void {
-      this.itemService.deleteAll()
-        .subscribe(
-          response => {
-            console.log(response);
-            this.retrieveItems();
-          },
-          error => {
-            console.log(error);
-          });
-    }
-
-    searchTitle(): void {
-      this.itemService.findByTitle(this.title)
-        .subscribe(
-          data => {
-            this.items = data;
-            console.log(data);
-          },
-          error => {
-            console.log(error);
-          });
-    }
+//   retrieveItems(): void {
+//       this.itemService.getAll()
+//         .subscribe(
+//           data => {
+//             this.items = data;
+//             console.log(data);
+//           },
+//           error => {
+//             console.log(error);
+//           });
+//     }
+//
+//     refreshList(): void {
+//       this.retrieveItems();
+//       this.currentItem = null;
+//       this.currentIndex = -1;
+//     }
+//
+//     setActiveItems(items, index): void {
+//       this.currentItem = items;
+//       this.currentIndex = index;
+//     }
+//
+//     removeAllItems(): void {
+//       this.itemService.deleteAll()
+//         .subscribe(
+//           response => {
+//             console.log(response);
+//             this.retrieveItems();
+//           },
+//           error => {
+//             console.log(error);
+//           });
+//     }
+//
+//     searchTitle(): void {
+//       this.itemService.findByTitle(this.title)
+//         .subscribe(
+//           data => {
+//             this.items = data;
+//             console.log(data);
+//           },
+//           error => {
+//             console.log(error);
+//           });
+//     }
 
 }

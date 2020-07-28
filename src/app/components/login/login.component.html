@@ -13,19 +13,19 @@
         novalidate
       >
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="userName">Username</label>
           <input
             type="text"
             class="form-control"
-            name="username"
-            [(ngModel)]="form.username"
+            name="userName"
+            [(ngModel)]="form.userName"
             required
-            #username="ngModel"
+            #userName="ngModel"
           />
           <div
             class="alert alert-danger"
             role="alert"
-            *ngIf="f.submitted && username.invalid"
+            *ngIf="f.submitted && userName.invalid"
           >
             Username is required!
           </div>
@@ -67,7 +67,7 @@
           </div>
         </div>
       </form>
-  
+
       <div class="alert alert-success" *ngIf="isLoggedIn">
         Logged in as {{ roles }}.
       </div>

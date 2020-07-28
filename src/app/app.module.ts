@@ -21,7 +21,7 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
-
+import { FormsModule }    from '@angular/forms';
 
 @NgModule({
   declarations: [

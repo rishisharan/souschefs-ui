@@ -5,12 +5,12 @@ import { AboutComponent } from './about/about.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { ItemDetailsComponent } from './components/item-details/item-details.component';
 import { ShowItemsComponent } from './components/show-items/show-items.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
-import { BoardUserComponent } from './board-user/board-user.component';
-import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
-import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { LoginComponent } from 'src/app/components/login/login.component';
+import { RegisterComponent } from 'src/app/components/register/register.component';
+import { ProfileComponent } from 'src/app/components/profile/profile.component';
+import { BoardUserComponent } from 'src/app/components/board-user/board-user.component';
+import { BoardModeratorComponent } from 'src/app/components/board-moderator/board-moderator.component';
+import { BoardAdminComponent } from 'src/app/components/board-admin/board-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
