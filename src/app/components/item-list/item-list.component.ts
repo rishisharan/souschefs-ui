@@ -10,6 +10,8 @@ export class ItemListComponent implements OnInit {
   pageTitle: string = 'Item List';
   imageWidth: number = 50;
   imageMargin: number = 2;
+  showImage: boolean = false;
+  listFilter: string = 'cart';
   items: any[] = [
       {
         "itemId": 1,
@@ -62,8 +64,13 @@ export class ItemListComponent implements OnInit {
         "imageUrl": "assets/images/xbox-controller.png"
       }
     ];
+
   constructor() { }
+
   ngOnInit(): void {
+  }
+  toggleImage(): void{
+    this.showImage = !this.showImage;
   }
 
 }
