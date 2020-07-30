@@ -19,6 +19,7 @@ import { BoardModeratorComponent } from './components/board-moderator/board-mode
 import { BoardUserComponent } from './components/board-user/board-user.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { FormsModule }    from '@angular/forms';
+import { ItemListComponent } from './components/item-list/item-list.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormsModule }    from '@angular/forms';
     BoardAdminComponent,
     BoardModeratorComponent,
     BoardUserComponent,
+    ItemListComponent,
   ],
   imports: [
 
