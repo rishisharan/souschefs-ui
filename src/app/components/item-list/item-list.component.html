@@ -40,7 +40,7 @@
                     <td> {{ item.itemCode | lowercase }} </td>
                     <td> {{ item.releaseDate}} </td>
                     <td> {{ item.price | currency: 'USD' : 'symbol': '1.2-2'}} </td>
-                    <td> {{ item.starRating}} </td>
+                    <td> <app-star [rating]='item.starRating'> </app-star> </td>
                 </tr>
             </tbody>
           </table>
