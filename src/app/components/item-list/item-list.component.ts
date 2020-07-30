@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Items } from './items';
 @Component({
   selector: 'app-item-list',
   templateUrl: './item-list.component.html',
@@ -11,8 +11,18 @@ export class ItemListComponent implements OnInit {
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = false;
-  listFilter: string = 'cart';
-  items: any[] = [
+  filteredItems: Items[];
+  _listFilter: string;
+
+  get listFilter(): string{
+    return this._listFilter;
+  }
+  set listFilter(value: string){
+    this._listFilter = value;
+    this.filteredItems = this.listFilter ? this.performFilter(this.listFilter) : this.items;
+  }
+
+  items: Items[] = [
       {
         "itemId": 1,
         "itemName": "Leaf Rake",
@@ -65,7 +75,6 @@ export class ItemListComponent implements OnInit {
       }
     ];
 
-  constructor() { }
 
   ngOnInit(): void {
   }
@@ -73,4 +82,13 @@ export class ItemListComponent implements OnInit {
     this.showImage = !this.showImage;
   }
 
+  performFilter(filterBy: string): Items[]{
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.items.filter((items: Items) => items.itemName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  }
+
+  constructor(){
+    this.filteredItems = this.items;
+    this.listFilter = 'cart';
+  }
 }
