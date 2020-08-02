@@ -48,6 +48,7 @@ import { StarComponent } from './components/shared/star/star.component';
     MatButtonModule,
     MatCardModule,
     MatProgressSpinnerModule
+
   ],
   providers: [ authInterceptorProviders ],
   bootstrap: [AppComponent]
