@@ -21,7 +21,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { FormsModule }    from '@angular/forms';
 import { ItemListComponent } from './components/item-list/item-list.component';
 import { StarComponent } from './components/shared/star/star.component';
-import { CommonModule } from "@angular/common";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,8 +47,8 @@ import { CommonModule } from "@angular/common";
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatProgressSpinnerModule,
-    CommonModule
+    MatProgressSpinnerModule
+
   ],
   providers: [ authInterceptorProviders ],
   bootstrap: [AppComponent]
