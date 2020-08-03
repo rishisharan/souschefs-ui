@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Items } from './items';
 import { ItemService } from 'src/app/services/item.service';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { ItemComponent } from 'src/app/components/item/item.component';
 
 @Component({
   selector: 'app-item-list',
@@ -16,6 +18,7 @@ export class ItemListComponent implements OnInit {
   filteredItems: Items[];
   _listFilter: string;
   private _itemService;
+  private dialog: MatDialog;
 
   get listFilter(): string{
     return this._listFilter;
@@ -49,4 +52,12 @@ export class ItemListComponent implements OnInit {
     console.log("Adding item");
   }
 
+   onCreate() {
+      this._itemService.initializeFormGroup();
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+      dialogConfig.width = "60%";
+      this.dialog.open(ItemComponent,dialogConfig);
+    }
 }
