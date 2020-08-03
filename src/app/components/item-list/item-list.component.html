@@ -37,7 +37,7 @@
                         <img *ngIf='showImage' [src] = 'item.imageUrl' [title] = 'item.itemName' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
                     </td>
                     <td>
-                        <a [routerLink]="['/user', item.itemId]">
+                        <a [routerLink]="['/chefItems', item.itemId]">
                           {{ item.itemName }}
                         </a>
                     </td>
