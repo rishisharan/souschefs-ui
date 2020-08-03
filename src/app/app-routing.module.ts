@@ -8,7 +8,7 @@ import { ProfileComponent } from 'src/app/components/profile/profile.component';
 import { BoardUserComponent } from 'src/app/components/board-user/board-user.component';
 import { BoardModeratorComponent } from 'src/app/components/board-moderator/board-moderator.component';
 import { BoardAdminComponent } from 'src/app/components/board-admin/board-admin.component';
-import { ItemDetailComponent } from 'src/app/components/item/item-detail.component';
+import { ItemDetailComponent } from 'src/app/components/item-details/item-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},

@@ -44,4 +44,9 @@ export class ItemListComponent implements OnInit {
   constructor(itemService: ItemService){
     this._itemService = itemService;
   }
+
+  addItem(){
+    console.log("Adding item");
+  }
+
 }
