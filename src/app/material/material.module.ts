@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // import * as Material from '@angular/material';
-import {MatCheckboxModule} from '@angular/material';
-import {MatButtonModule} from '@angular/material';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+// import {MatButtonModule} from '@angular/material';
+import { MatNativeDateModule } from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -31,46 +32,45 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   imports: [
     CommonModule,
-    Material.MatToolbarModule,
-    Material.MatGridListModule,
-    Material.MatFormFieldModule,
-    Material.MatInputModule,
-    Material.MatRadioModule,
-    Material.MatSelectModule,
-    Material.MatCheckboxModule,
-    Material.MatDatepickerModule,
-    Material.MatNativeDateModule,
-    Material.MatButtonModule,
-    Material.MatSnackBarModule,
-    Material.MatTableModule,
-    Material.MatIconModule,
-    Material.MatPaginatorModule,
-    Material.MatSortModule,
-    Material.MatDialogModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+//     MatNativeDateModule,
+//     MatButtonModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
 
   ],
   exports: [
-    Material.MatToolbarModule,
-    Material.MatGridListModule,
-    Material.MatFormFieldModule,
-    Material.MatInputModule,
-    Material.MatRadioModule,
-    Material.MatSelectModule,
-    Material.MatCheckboxModule,
-    Material.MatDatepickerModule,
-    Material.MatNativeDateModule,
-    Material.MatButtonModule,
-    Material.MatSnackBarModule,
-    Material.MatTableModule,
-    Material.MatIconModule,
-    Material.MatPaginatorModule,
-    Material.MatSortModule,
-    Material.MatDialogModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+//     MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+//     MatButtonModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
 
   ],
   declarations: []

@@ -23,9 +23,13 @@ import { FormsModule }    from '@angular/forms';
 import { ItemListComponent } from './components/item-list/item-list.component';
 import { StarComponent } from './components/shared/star/star.component';
 import { ItemComponent } from './components/item/item.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatRadioModule} from '@angular/material/radio';
 // import { MaterialModule } from '@angular/material';
-// import {MaterialModule} from '@angular/material';
+import { ItemService } from './services/item.service';
+import {MatDialogModule} from '@angular/material/dialog';
 import { MaterialModule } from "./material/material.module";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -53,10 +57,12 @@ import { MaterialModule } from "./material/material.module";
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatProgressSpinnerModule
-
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
-  providers: [ authInterceptorProviders ],
+  providers: [ ItemService, authInterceptorProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

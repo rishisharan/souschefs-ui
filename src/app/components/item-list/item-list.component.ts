@@ -17,8 +17,7 @@ export class ItemListComponent implements OnInit {
   showImage: boolean = false;
   filteredItems: Items[];
   _listFilter: string;
-  private _itemService;
-  private dialog: MatDialog;
+//   private _itemService;
 
   get listFilter(): string{
     return this._listFilter;
@@ -31,7 +30,7 @@ export class ItemListComponent implements OnInit {
   items: Items[] = [];
 
   ngOnInit(): void {
-    this.items = this._itemService.getItems();
+    this.items = this.itemService.getItems();
     this.filteredItems = this.items;
   }
 
@@ -44,8 +43,8 @@ export class ItemListComponent implements OnInit {
     return this.items.filter((items: Items) => items.itemName.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
-  constructor(itemService: ItemService){
-    this._itemService = itemService;
+  constructor(private itemService: ItemService,
+    private dialog: MatDialog){
   }
 
   addItem(){
@@ -53,7 +52,7 @@ export class ItemListComponent implements OnInit {
   }
 
    onCreate() {
-      this._itemService.initializeFormGroup();
+      this.itemService.initializeFormGroup();
       const dialogConfig = new MatDialogConfig();
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;
