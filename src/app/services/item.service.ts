@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
 // import { Items } from 'src/app/models/items/items';
-import { Items } from 'src/app/components/item-list/items';
+// import { Items } from 'src/app/components/item-list/items';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Item } from 'src/app/models/item';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ItemService {
-     employeeList: any;
-    getItems(): Items[]
+
+    private baseUrl = 'http://localhost:8080/springboot-crud-rest/api/v1/employees';
+    item: Item = new Item();
+    employeeList: any;
+
+    constructor(private http: HttpClient){}
+
+    getItems(): Item[]
     {
       return [
                    {
@@ -90,17 +99,24 @@ export class ItemService {
           });
         }
 
-        insertEmployee(employee) {
-            this.employeeList.push({
-              fullName: employee.fullName,
-              email: employee.email,
-              mobile: employee.mobile,
-              city: employee.city,
-              gender: employee.gender,
-              department: employee.department,
-               hireDate: employee.hireDate,
-              isPermanent: employee.isPermanent
-            });
-          }
+        insertItem( employee: Object ): Observable<Object> {
+//             this.item.itemName = item.fullName;
+            return this.http.post(`${this.baseUrl}`, employee);
+        }
+
+          updateItem( item ) {
+//               this.employeeList.update(employee.$key,
+//                 {
+//                   fullName: employee.fullName,
+//                   email: employee.email,
+//                   mobile: employee.mobile,
+//                   city: employee.city,
+//                   gender: employee.gender,
+//                   department: employee.department,
+//                    hireDate: employee.hireDate == "" ? "" : this.datePipe.transform(employee.hireDate, 'yyyy-MM-dd'),
+//                   isPermanent: employee.isPermanent
+//                 });
+            }
+
 
 }

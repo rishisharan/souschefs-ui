@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ItemService } from 'src/app/services/item.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Item } from 'src/app/models/item';
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
@@ -9,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class ItemComponent implements OnInit {
 
+  item: Item = new Item();
   constructor( public service: ItemService, public dialogRef: MatDialogRef<ItemComponent> ) { }
 
   departments = [{ id:1, value: 'Dept 1'},{ id:2, value: 'Dept 2'},{ id:3, value: 'Dept 3'}];
@@ -24,14 +26,17 @@ export class ItemComponent implements OnInit {
 
   onSubmit() {
     if (this.service.form.valid) {
-//       if (!this.service.form.get('$key').value)
-//         this.service.insertEmployee(this.service.form.value);
-//       else
-//       this.service.updateEmployee(this.service.form.value);
-//       this.service.form.reset();
-//       this.service.initializeFormGroup();
-//       this.notificationService.success(':: Submitted successfully');
-//       this.onClose();
+      if (!this.service.form.get('$key').value)
+//         this.service.insertItem(this.service.form.value);
+          this.service.insertItem(this.service.form.value)
+              .subscribe(data => console.log(data), error => console.log(error));
+      else{
+        this.service.updateItem((this.service.form.value));
+        this.service.form.reset();
+        this.service.initializeFormGroup();
+//         this.notificationService.success(':: Submitted successfully');
+        this.onClose();
+      }
     }
   }
 
