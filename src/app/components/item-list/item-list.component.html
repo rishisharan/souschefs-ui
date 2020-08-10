@@ -3,6 +3,7 @@
     <div class='card-header'>
       {{ pageTitle }}
     </div>
+
     <div class='card-body'>
       <div class="row">
           <div class='col-md-2'> Filter by: </div>
@@ -36,7 +37,11 @@
                     <td>
                         <img *ngIf='showImage' [src] = 'item.imageUrl' [title] = 'item.itemName' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
                     </td>
-                    <td> {{ item.itemName}} </td>
+                    <td>
+                        <a [routerLink]="['/chefItems', item.itemId]">
+                          {{ item.itemName }}
+                        </a>
+                    </td>
                     <td> {{ item.itemCode | lowercase }} </td>
                     <td> {{ item.releaseDate}} </td>
                     <td> {{ item.price | currency: 'USD' : 'symbol': '1.2-2'}} </td>
@@ -44,5 +49,8 @@
                 </tr>
             </tbody>
           </table>
+        <button class="btn btn-primary" (click) = 'onCreate()'>
+          Add Item
+        </button>
       </div>
 </div>

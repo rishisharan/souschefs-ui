@@ -1,4 +1,4 @@
-export interface Items{
+export class Item {
 
        itemId: number;
        itemName: string;
