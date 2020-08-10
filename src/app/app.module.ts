@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialog } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoginComponent } from './components/login/login.component';
@@ -58,9 +59,11 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatButtonModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    MatGridListModule,
     MatDialogModule,
     ReactiveFormsModule,
     MaterialModule
+
   ],
   providers: [ ItemService, authInterceptorProviders ],
   bootstrap: [AppComponent]
