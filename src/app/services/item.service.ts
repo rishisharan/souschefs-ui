@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ItemService {
 
-    private baseUrl = 'http://localhost:8080/springboot-crud-rest/api/v1/employees';
+    private baseUrl = 'http://localhost:9090/api/create';
     item: Item = new Item();
     employeeList: any;
 
@@ -23,79 +23,47 @@ export class ItemService {
                    {
                      "itemId": 1,
                      "itemName": "Leaf Rake",
-                     "itemCode": "GDN-0011",
-                     "releaseDate": "March 19, 2019",
-                     "description": "Leaf rake with 48-inch wooden handle.",
-                     "price": 19.95,
-                     "starRating": 3.2,
-                     "imageUrl": "assets/images/leaf_rake.png"
+                     "itemDescription": "Leaf rake with 48-inch wooden handle.",
+                     "itemImageUrl": "assets/images/leaf_rake.png",
+                     "itemPrice": 19.95,
+                     "starRating": 3.2
                    },
                    {
                      "itemId": 2,
                      "itemName": "Garden Cart",
-                     "itemCode": "GDN-0023",
-                     "releaseDate": "March 18, 2019",
-                     "description": "15 gallon capacity rolling garden cart",
-                     "price": 32.99,
-                     "starRating": 4.2,
-                     "imageUrl": "assets/images/garden_cart.png"
+                     "itemDescription": "Leaf rake with 48-inch wooden handle.",
+                     "itemImageUrl": "assets/images/garden_cart.png",
+                     "itemPrice": 32.99,
+                     "starRating": 4.2
                    },
                    {
                      "itemId": 5,
                      "itemName": "Hammer",
-                     "itemCode": "TBX-0048",
-                     "releaseDate": "May 21, 2019",
-                     "description": "Curved claw steel hammer",
-                     "price": 8.9,
-                     "starRating": 4.8,
-                     "imageUrl": "assets/images/hammer.png"
-                   },
-                   {
-                     "itemId": 8,
-                     "itemName": "Saw",
-                     "itemCode": "TBX-0022",
-                     "releaseDate": "May 15, 2019",
-                     "description": "15-inch steel blade hand saw",
-                     "price": 11.55,
-                     "starRating": 3.7,
-                     "imageUrl": "assets/images/saw.png"
-                   },
-                   {
-                     "itemId": 10,
-                     "itemName": "Video Game Controller",
-                     "itemCode": "GMG-0042",
-                     "releaseDate": "October 15, 2018",
-                     "description": "Standard two-button video game controller",
-                     "price": 35.95,
-                     "starRating": 4.6,
-                     "imageUrl": "assets/images/xbox-controller.png"
+                      "itemDescription": "Leaf rake with 48-inch wooden handle.",
+                     "itemImageUrl": "assets/images/garden_cart.png",
+                     "itemPrice": 8.9,
+                     "starRating": 4.8
                    }
                  ];
     }
 
     form: FormGroup = new FormGroup({
         $key: new FormControl(null),
-        fullName: new FormControl('', Validators.required),
-        email: new FormControl('', Validators.email),
-        mobile: new FormControl('', [Validators.required, Validators.minLength(8)]),
-        city: new FormControl(''),
-        gender: new FormControl('1'),
-        department: new FormControl(0),
-        hireDate: new FormControl(''),
-        isPermanent: new FormControl(false)
+        itemName: new FormControl('', Validators.required),
+        itemDescription: new FormControl('', Validators.required),
+        itemImageUrl: new FormControl('', Validators.required),
+        itemPrice: new FormControl('', Validators.required),
+        availableDate: new FormControl(''),
       });
 
       initializeFormGroup() {
           this.form.setValue({
             $key: null,
-            fullName: '',
-            email: '',
-            mobile: '',
-            city: '',
-            gender: '1',
-            department: 0,
-            hireDate: '',
-            isPermanent: false
+            itemName: '',
+            itemDescription: '',
+            itemImageUrl:'',
+            itemPrice:'',
+            availableDate: ''
           });
         }
 

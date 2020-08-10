@@ -17,14 +17,13 @@ export class ItemDetailComponent implements OnInit {
     let id = +this.route.snapshot.paramMap.get('id');
      this.pageTitle += ': ${id}';
      this.item = {
-           "itemId": id,
-            "itemName": 'Leaf Rake',
-             "itemCode": 'GDN-011',
-             "releaseDate": 'Mar 19',
-             "description": 'Leaf Rake with 48 inch',
-             "price": 19.95,
-             "starRating": 3.2,
-             "imageUrl": 'assets/images/leaf_rake.png'
+
+           "itemId": 5,
+           "itemName": "Hammer",
+           "itemDescription": "Leaf rake with 48-inch wooden handle.",
+           "itemImageUrl": "assets/images/garden_cart.png",
+           "itemPrice": 8.9,
+           "starRating": 4.8
        }
   }
 

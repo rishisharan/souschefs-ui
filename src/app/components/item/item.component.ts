@@ -13,7 +13,6 @@ export class ItemComponent implements OnInit {
   item: Item = new Item();
   constructor( public service: ItemService, public dialogRef: MatDialogRef<ItemComponent> ) { }
 
-  departments = [{ id:1, value: 'Dept 1'},{ id:2, value: 'Dept 2'},{ id:3, value: 'Dept 3'}];
   ngOnInit() {
     this.service.getItems();
   }

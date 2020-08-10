@@ -44,7 +44,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     BoardUserComponent,
     ItemListComponent,
     StarComponent,
-    ItemComponent,
+    ItemComponent
   ],
   imports: [
 
