@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialog } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -21,6 +22,14 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { FormsModule }    from '@angular/forms';
 import { ItemListComponent } from './components/item-list/item-list.component';
 import { StarComponent } from './components/shared/star/star.component';
+import { ItemComponent } from './components/item/item.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatRadioModule} from '@angular/material/radio';
+// import { MaterialModule } from '@angular/material';
+import { ItemService } from './services/item.service';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MaterialModule } from "./material/material.module";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -35,6 +44,7 @@ import { StarComponent } from './components/shared/star/star.component';
     BoardUserComponent,
     ItemListComponent,
     StarComponent,
+    ItemComponent
   ],
   imports: [
 
@@ -47,10 +57,12 @@ import { StarComponent } from './components/shared/star/star.component';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatProgressSpinnerModule
-
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
-  providers: [ authInterceptorProviders ],
+  providers: [ ItemService, authInterceptorProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

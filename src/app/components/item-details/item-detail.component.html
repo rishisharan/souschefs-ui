@@ -10,21 +10,15 @@
           <div class='col-md-4'>Name:</div>
           <div class='col-md-8'>{{item.itemName}}</div>
         </div>
-        <div class='row'>
-          <div class='col-md-4'>Code:</div>
-          <div class='col-md-8'>{{item.itemCode  }}</div>
-        </div>
+
         <div class='row'>
           <div class='col-md-4'>Description:</div>
-          <div class='col-md-8'>{{item.description}}</div>
+          <div class='col-md-8'>{{item.itemDescription}}</div>
         </div>
-        <div class='row'>
-          <div class='col-md-4'>Availability:</div>
-          <div class='col-md-8'>{{item.releaseDate}}</div>
-        </div>
+
         <div class='row'>
           <div class='col-md-4'>Price:</div>
-          <div class='col-md-8'>{{item.price}}</div>
+          <div class='col-md-8'>{{item.itemPrice}}</div>
         </div>
         <div class='row'>
           <div class='col-md-4'>5 Star Rating:</div>
@@ -40,7 +34,7 @@
         <img class='center-block img-responsive'
              [style.width.px]='200'
              [style.margin.px]='2'
-             [src]='item.imageUrl'
+             [src]='item.itemImageUrl'
              [title]='item.itemName'>
       </div>
     </div>
