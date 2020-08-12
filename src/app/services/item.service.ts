@@ -5,13 +5,13 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Item } from 'src/app/models/item';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
+import { DatePipe } from '@angular/common';
 @Injectable({
     providedIn: 'root'
 })
 export class ItemService {
 
-    private baseUrl = 'http://localhost:9090/api/create';
+    private baseUrl = 'http://localhost:9090/api/createItem/2/item';
     item: Item = new Item();
     employeeList: any;
 
@@ -53,7 +53,10 @@ export class ItemService {
         itemDescription: new FormControl('', Validators.required),
         itemImageUrl: new FormControl('', Validators.required),
         itemPrice: new FormControl('', Validators.required),
-        availableDate: new FormControl(''),
+        itemType:  new FormControl('', Validators.required),
+        availableTime:  new FormControl('1'),
+        availableFromDate:  new FormControl('', Validators.required),
+        availableToDate:  new FormControl('')
       });
 
       initializeFormGroup() {
@@ -63,7 +66,10 @@ export class ItemService {
             itemDescription: '',
             itemImageUrl:'',
             itemPrice:'',
-            availableDate: ''
+            itemType: '',
+            availableTime: 0,
+            availableFromDate: '',
+            availableToDate: ''
           });
         }
 
