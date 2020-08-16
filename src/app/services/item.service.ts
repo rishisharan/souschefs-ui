@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Item } from 'src/app/models/item';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
+// import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 @Injectable({
     providedIn: 'root'
@@ -73,24 +74,26 @@ export class ItemService {
           });
         }
 
-        insertItem( employee: Object ): Observable<Object> {
-//             this.item.itemName = item.fullName;
-            return this.http.post(`${this.baseUrl}`, employee);
+        insertItem( item: Object ): Observable<Object> {
+
+
+            return this.http.post(`${this.baseUrl}`, item);
         }
 
-          updateItem( item ) {
-//               this.employeeList.update(employee.$key,
-//                 {
-//                   fullName: employee.fullName,
-//                   email: employee.email,
-//                   mobile: employee.mobile,
-//                   city: employee.city,
-//                   gender: employee.gender,
-//                   department: employee.department,
-//                    hireDate: employee.hireDate == "" ? "" : this.datePipe.transform(employee.hireDate, 'yyyy-MM-dd'),
-//                   isPermanent: employee.isPermanent
-//                 });
-            }
+        updateItem( item ) {
 
+        }
+
+        pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+          const data: FormData = new FormData();
+          data.append('file', file);
+          const newRequest = new HttpRequest('POST', 'http://localhost:9090/api/upload', data, {
+            reportProgress: true,
+            responseType: 'text'
+          });
+          const someVal = this.http.request(newRequest);
+
+          return this.http.request(newRequest);
+      }
 
 }
