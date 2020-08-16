@@ -26,11 +26,11 @@ import { StarComponent } from './components/shared/star/star.component';
 import { ItemComponent } from './components/item/item.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
-// import { MaterialModule } from '@angular/material';
 import { ItemService } from './services/item.service';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MaterialModule } from "./material/material.module";
 import { ReactiveFormsModule } from "@angular/forms";
+import { MatFileUploadModule } from 'mat-file-upload';
 
 @NgModule({
   declarations: [
@@ -59,6 +59,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatButtonModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    MatFileUploadModule,
     MatGridListModule,
     MatDialogModule,
     ReactiveFormsModule,

@@ -24,6 +24,16 @@
           <input formControlName="itemPrice" matInput placeholder="Item price*">
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
+        <mat-file-upload
+          [labelText]="'Select a file (or multiple) to upload:'"
+          [selectButtonText]="'Choose image file to upload'"
+          [uploadButtonText]="'Upload'"
+          [showUploadButton]="true"
+          (uploadClicked)="onUploadClicked($event)"
+          (selectedFilesChanged)="selectFile($event)"
+        >
+
+        </mat-file-upload>
       </div>
     </mat-grid-tile>
     <mat-grid-tile>
