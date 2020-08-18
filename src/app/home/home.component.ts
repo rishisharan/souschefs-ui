@@ -22,14 +22,7 @@ export class HomeComponent implements OnInit {
   //   // );
   // }
   ngOnInit(): void {
-    this.itemsService.getPublicContent().subscribe(
-      data => {
-        this.items = JSON.parse(data)
-      },
-      err => {
-        this.items = JSON.parse(err.error).message;
-      }
-    );
   }
+
 }
 

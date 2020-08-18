@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Items } from './items';
+import { Item } from 'src/app/models/item';
 import { ItemService } from 'src/app/services/item.service';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ItemComponent } from 'src/app/components/item/item.component';
@@ -15,7 +15,7 @@ export class ItemListComponent implements OnInit {
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = false;
-  filteredItems: Items[];
+  filteredItems: Item[];
   _listFilter: string;
 //   private _itemService;
 
@@ -28,11 +28,11 @@ export class ItemListComponent implements OnInit {
     this.filteredItems = this.listFilter ? this.performFilter(this.listFilter) : this.items;
   }
 
-  items: Items[] = [];
+  items: Item[] = [];
+  private results: Item[];
 
   ngOnInit(): void {
-//     this.items = this.itemService.getItemsByChefId(2);
-    this.items = this.getChefItems(2);
+    this.getChefItems(2);
     this.filteredItems = this.items;
   }
 
@@ -40,9 +40,9 @@ export class ItemListComponent implements OnInit {
     this.showImage = !this.showImage;
   }
 
-  performFilter(filterBy: string): Items[]{
+  performFilter(filterBy: string): Item[]{
     filterBy = filterBy.toLocaleLowerCase();
-    return this.items.filter((items: Items) => items.itemName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    return this.items.filter((items: Item) => items.itemName.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
   constructor(private itemService: ItemService,
@@ -62,15 +62,19 @@ export class ItemListComponent implements OnInit {
       this.dialog.open(ItemComponent,dialogConfig);
     }
 
-   getChefItems(id): void {
+   getChefItems(id): void{
         this.itemService.getItemsByChefId(id)
-          .subscribe(
-            data => {
-              this.items = data;
-              console.log(data);
+          .subscribe(data => {
+                this.items = data;
             },
             error => {
               console.log(error);
             });
+
+   }
+
+   setResultData(item: Item[]){
+      this.items = item;
+         console.log(this.items);
    }
 }
