@@ -19,7 +19,7 @@ export class ItemComponent implements OnInit {
     constructor( public service: ItemService, public dialogRef: MatDialogRef<ItemComponent> ) { }
 
     ngOnInit() {
-      this.service.getItems();
+   //   this.service.getItems();
     }
 
    onClose() {

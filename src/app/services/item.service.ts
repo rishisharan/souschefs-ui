@@ -6,47 +6,49 @@ import { Item } from 'src/app/models/item';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
 // import { HttpClient } from '@angular/common/http';
+// import 'rxjs/add/operator/map';
 import { DatePipe } from '@angular/common';
 @Injectable({
     providedIn: 'root'
 })
 export class ItemService {
 
-    private baseUrl = 'http://localhost:9090/api/createItem/2/item';
+//     private baseUrl = 'http://localhost:9090/api/createItem/2/item';
+    private baseUrl = 'http://localhost:9090/api';
     item: Item = new Item();
     employeeList: any;
 
     constructor(private http: HttpClient){}
 
-    getItems(): Item[]
-    {
-      return [
-                   {
-                     "itemId": 1,
-                     "itemName": "Leaf Rake",
-                     "itemDescription": "Leaf rake with 48-inch wooden handle.",
-                     "itemImageUrl": "assets/images/leaf_rake.png",
-                     "itemPrice": 19.95,
-                     "starRating": 3.2
-                   },
-                   {
-                     "itemId": 2,
-                     "itemName": "Garden Cart",
-                     "itemDescription": "Leaf rake with 48-inch wooden handle.",
-                     "itemImageUrl": "assets/images/garden_cart.png",
-                     "itemPrice": 32.99,
-                     "starRating": 4.2
-                   },
-                   {
-                     "itemId": 5,
-                     "itemName": "Hammer",
-                      "itemDescription": "Leaf rake with 48-inch wooden handle.",
-                     "itemImageUrl": "assets/images/garden_cart.png",
-                     "itemPrice": 8.9,
-                     "starRating": 4.8
-                   }
-                 ];
-    }
+//     getItems(): Item[]
+//     {
+//       return [
+//                    {
+//                      "itemId": 1,
+//                      "itemName": "Leaf Rake",
+//                      "itemDescription": "Leaf rake with 48-inch wooden handle.",
+//                      "itemImageUrl": "assets/images/leaf_rake.png",
+//                      "itemPrice": 19.95,
+//                      "starRating": 3.2
+//                    },
+//                    {
+//                      "itemId": 2,
+//                      "itemName": "Garden Cart",
+//                      "itemDescription": "Leaf rake with 48-inch wooden handle.",
+//                      "itemImageUrl": "assets/images/garden_cart.png",
+//                      "itemPrice": 32.99,
+//                      "starRating": 4.2
+//                    },
+//                    {
+//                      "itemId": 5,
+//                      "itemName": "Hammer",
+//                       "itemDescription": "Leaf rake with 48-inch wooden handle.",
+//                      "itemImageUrl": "assets/images/garden_cart.png",
+//                      "itemPrice": 8.9,
+//                      "starRating": 4.8
+//                    }
+//                  ];
+//     }
 
     form: FormGroup = new FormGroup({
         $key: new FormControl(null),
@@ -77,14 +79,14 @@ export class ItemService {
         insertItem( item: Object ): Observable<Object> {
 
 
-            return this.http.post(`${this.baseUrl}`, item);
+            return this.http.post(`${this.baseUrl}/createItem/2/item`, item);
         }
 
         updateItem( item ) {
 
         }
 
-        pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+      pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
           const data: FormData = new FormData();
           data.append('file', file);
           const newRequest = new HttpRequest('POST', 'http://localhost:9090/api/upload', data, {
@@ -94,6 +96,10 @@ export class ItemService {
           const someVal = this.http.request(newRequest);
 
           return this.http.request(newRequest);
+      }
+
+      getItemsByChefId(id): Observable<any> {
+            return this.http.get(`${this.baseUrl}/item/getAllItemsByChefId/${id}`);
       }
 
 }
