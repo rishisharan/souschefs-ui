@@ -84,7 +84,7 @@ export class ItemService {
 
         }
 
-        pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+      pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
           const data: FormData = new FormData();
           data.append('file', file);
           const newRequest = new HttpRequest('POST', 'http://localhost:9090/api/upload', data, {
@@ -94,6 +94,10 @@ export class ItemService {
           const someVal = this.http.request(newRequest);
 
           return this.http.request(newRequest);
+      }
+
+      getItemsByChefId(id): Observable<Item[]> {
+            return this.http.get(`${this.baseUrl}/getAllItemsByChefId/${id}`);
       }
 
 }

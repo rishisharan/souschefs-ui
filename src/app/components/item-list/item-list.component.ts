@@ -22,6 +22,7 @@ export class ItemListComponent implements OnInit {
   get listFilter(): string{
     return this._listFilter;
   }
+
   set listFilter(value: string){
     this._listFilter = value;
     this.filteredItems = this.listFilter ? this.performFilter(this.listFilter) : this.items;
@@ -30,7 +31,8 @@ export class ItemListComponent implements OnInit {
   items: Items[] = [];
 
   ngOnInit(): void {
-    this.items = this.itemService.getItems();
+//     this.items = this.itemService.getItemsByChefId(2);
+    this.items = this.getChefItems(2);
     this.filteredItems = this.items;
   }
 
@@ -59,4 +61,16 @@ export class ItemListComponent implements OnInit {
       dialogConfig.width = "60%";
       this.dialog.open(ItemComponent,dialogConfig);
     }
+
+   getChefItems(id): void {
+        this.itemService.getItemsByChefId(id)
+          .subscribe(
+            data => {
+              this.items = data;
+              console.log(data);
+            },
+            error => {
+              console.log(error);
+            });
+   }
 }

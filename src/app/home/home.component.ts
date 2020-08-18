@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemsService } from 'src/app/services/items.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,7 @@ export class HomeComponent implements OnInit {
 
   items: string;
 
-  constructor(private itemsService: ItemsService) { }
+  constructor() { }
 
   // ngOnInit(): void {
   //   // this.userService.getPublicContent().subscribe(
