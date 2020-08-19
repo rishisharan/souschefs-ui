@@ -5,10 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Item } from 'src/app/models/item';
 @Component({
   selector: 'app-item',
-  templateUrl: './add-item.component.html',
-  styleUrls: ['./add-item.component.scss']
+  templateUrl: './item.component.html',
+  styleUrls: ['./item.component.scss']
 })
-export class AddItemComponent implements OnInit {
+export class ItemComponent implements OnInit {
     selectedFiles: File;
     currentFileUpload: File;
     item: Item = new Item();
@@ -16,7 +16,7 @@ export class AddItemComponent implements OnInit {
     selectedFile = null;
     fileUrl:string;
 
-    constructor( public service: ItemService, public dialogRef: MatDialogRef<AddItemComponent> ) { }
+    constructor( public service: ItemService, public dialogRef: MatDialogRef<ItemComponent> ) { }
 
     ngOnInit() {
    //   this.service.getItems();
