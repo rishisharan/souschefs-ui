@@ -23,7 +23,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { FormsModule }    from '@angular/forms';
 import { ItemListComponent } from './components/item-list/item-list.component';
 import { StarComponent } from './components/shared/star/star.component';
-import { AddItemComponent } from './components/add-item/add-item.component';
+import { ItemComponent } from './components/item/item.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
 import { ItemService } from './services/item.service';
@@ -45,7 +45,7 @@ import { MatFileUploadModule } from 'mat-file-upload';
     BoardUserComponent,
     ItemListComponent,
     StarComponent,
-    AddItemComponent
+    ItemComponent
   ],
   imports: [
 

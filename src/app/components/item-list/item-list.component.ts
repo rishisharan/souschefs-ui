@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/models/item';
 import { ItemService } from 'src/app/services/item.service';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { AddItemComponent } from 'src/app/components/add-item/add-item.component';
+import { ItemComponent } from 'src/app/components/item/item.component';
 
 @Component({
   selector: 'app-item-list',
@@ -59,7 +59,7 @@ export class ItemListComponent implements OnInit {
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;
       dialogConfig.width = "60%";
-      this.dialog.open(AddItemComponent,dialogConfig);
+      this.dialog.open(ItemComponent,dialogConfig);
     }
 
    getChefItems(id): void{
