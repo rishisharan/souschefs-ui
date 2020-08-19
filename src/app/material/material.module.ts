@@ -65,7 +65,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatDatepickerModule,
     MatNativeDateModule,
 //     MatButtonModule,
-    Module,
+    MatSnackBarModule,,
     MatTableModule,
     MatIconModule,
     MatPaginatorModule,
