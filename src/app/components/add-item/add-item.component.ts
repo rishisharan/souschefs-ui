@@ -3,6 +3,7 @@ import { ItemService } from 'src/app/services/item.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Item } from 'src/app/models/item';
+import { NotificationService } from 'src/app/services/notification.service';
 @Component({
   selector: 'app-item',
   templateUrl: './add-item.component.html',
@@ -16,7 +17,7 @@ export class AddItemComponent implements OnInit {
     selectedFile = null;
     fileUrl:string;
 
-    constructor( public service: ItemService, public dialogRef: MatDialogRef<AddItemComponent> ) { }
+    constructor( public service: ItemService,  public notificationService: NotificationService, public dialogRef: MatDialogRef<AddItemComponent> ) { }
 
     ngOnInit() {
    //   this.service.getItems();
@@ -41,7 +42,7 @@ export class AddItemComponent implements OnInit {
           this.service.updateItem((this.service.form.value));
           this.service.form.reset();
           this.service.initializeFormGroup();
-  //         this.notificationService.success(':: Submitted successfully');
+          this.notificationService.success(':: Submitted successfully');
           this.onClose();
         }
       }
