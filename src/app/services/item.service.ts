@@ -98,8 +98,8 @@ export class ItemService {
           return this.http.request(newRequest);
       }
 
-      getItemsByChefId(id): Observable<any> {
-            return this.http.get(`${this.baseUrl}/item/getAllItemsByChefId/${id}`);
+      getItemsByChefId(id): Observable<Item[]> {
+            return this.http.get<Item[]>(`${this.baseUrl}/item/getAllItemsByChefId/${id}`);
       }
 
 }
