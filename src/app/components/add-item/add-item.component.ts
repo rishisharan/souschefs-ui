@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from 'src/app/services/item.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Item } from 'src/app/models/item';
@@ -16,7 +17,7 @@ export class AddItemComponent implements OnInit {
     selectedFile = null;
     fileUrl:string;
 
-    constructor( public service: ItemService, public dialogRef: MatDialogRef<AddItemComponent> ) { }
+    constructor( public service: ItemService, public notificationService: NotificationService, public dialogRef: MatDialogRef<AddItemComponent> ) { }
 
     ngOnInit() {
    //   this.service.getItems();
@@ -29,25 +30,24 @@ export class AddItemComponent implements OnInit {
   }
 
     onSubmit() {
-      if (this.service.form.valid) {
-        if (!this.service.form.get('$key').value){
-  //            this.service.form.value.itemImageUrl = this.fileUrl;
-  //         this.service.insertItem(this.service.form.value);
-            this.service.form.value.itemImageUrl = this.fileUrl;
-            this.service.insertItem(this.service.form.value)
-                .subscribe(data => console.log(data), error => console.log(error));
-        }
-        else{
-          this.service.updateItem((this.service.form.value));
+        if (this.service.form.valid) {
+          if (!this.service.form.get('$key').value){
+              this.service.form.value.itemImageUrl = this.fileUrl;
+              this.service.insertItem(this.service.form.value)
+                  .subscribe(data => console.log(data), error => console.log(error));
+          }
+          else
+          console.log();
+          //this.service.updateItem((this.service.form.value));
           this.service.form.reset();
           this.service.initializeFormGroup();
-  //         this.notificationService.success(':: Submitted successfully');
+          this.notificationService.success(':: Submitted successfully');
           this.onClose();
-        }
+
       }
     }
 
-    onClear() {
+    onClear(){
       this.service.form.reset();
       this.service.initializeFormGroup();
 //       this.notificationService.success(':: Submitted successfully');
