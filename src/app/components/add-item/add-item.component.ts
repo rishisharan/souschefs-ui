@@ -29,22 +29,23 @@ export class AddItemComponent implements OnInit {
     this.dialogRef.close();
   }
 
-    onSubmit() {
-      if (this.service.form.valid) {
+    onSubmit()
+    {
+      if (this.service.form.valid)
+      {
         if (!this.service.form.get('$key').value){
-  //            this.service.form.value.itemImageUrl = this.fileUrl;
-  //         this.service.insertItem(this.service.form.value);
             this.service.form.value.itemImageUrl = this.fileUrl;
             this.service.insertItem(this.service.form.value)
                 .subscribe(data => console.log(data), error => console.log(error));
         }
         else{
           this.service.updateItem((this.service.form.value));
-          this.service.form.reset();
-          this.service.initializeFormGroup();
-          this.notificationService.success(':: Submitted successfully');
-          this.onClose();
         }
+        this.service.form.reset();
+        this.service.initializeFormGroup();
+        this.notificationService.success(':: Submitted successfully');
+        this.onClose();
+
       }
     }
 
