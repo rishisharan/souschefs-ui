@@ -62,14 +62,26 @@ export class ItemListComponent implements OnInit {
       this.dialog.open(AddItemComponent,dialogConfig);
     }
 
-   getChefItems(id): void{
-        this.itemService.getItemsByChefId(id)
-          .subscribe(data => {
-                this.items = data;
-            },
-            error => {
-              console.log(error);
-            });
+   private async getChefItems(id){
+//         this.itemService.getItemsByChefId(id)
+//           .subscribe(data => {
+//                 this.items = data;
+//             },
+//             error => {
+//               console.log(error);
+//             });
+        const promise = await this.itemService.getItemsByChefId(2).toPromise();
+//           console.log(promise);
+//
+//           promise.then((data)=>{
+//               this.items = data;
+//             console.log("Promise resolved with: " + JSON.stringify(data));
+//           }).catch((error)=>{
+//             console.log("Promise rejected with " + JSON.stringify(error));
+//           });
+      this.items = promise;
+      console.log("CBD");
+      console.log(this.items);
 
    }
 
