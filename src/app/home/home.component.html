@@ -1,24 +1,22 @@
-
 <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
-  <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let item of items">
+  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let item of items">
 
-  <mat-card  class="items-card">
-    <mat-card-header>
-      <img mat-card-avatar src="assets/images/Chef.jpg">
-      <mat-card-title> {{item.chef.firstName}} {{item.chef.lastName}}</mat-card-title>
-      <mat-card-subtitle>Chef</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="assets/images/italian.jpeg">
-    <mat-card-content>
-      <p>
-        {{item.itemName}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-stroked-button >LIKE</button>
-      <button mat-stroked-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+    <mat-card  class="items-card">
+      <mat-card-header>
+        <img mat-card-avatar src="assets/images/Chef.jpg">
+        <mat-card-title> </mat-card-title>
+        <mat-card-subtitle>Chef</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="assets/images/italian.jpeg">
+      <mat-card-content>
+        <p>
+          {{item.itemName}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a href="#" mat-button><mat-icon >favorite</mat-icon></a>
+        <a href="#" mat-button><mat-icon >share</mat-icon></a>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>
-

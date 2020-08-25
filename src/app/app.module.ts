@@ -32,6 +32,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MaterialModule } from "./material/material.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { CommonModule } from '@angular/common';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -67,7 +71,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatDialogModule,
     ReactiveFormsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule,
+    CommonModule
 
   ],
   providers: [ ItemService, authInterceptorProviders ],
