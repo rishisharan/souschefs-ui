@@ -16,7 +16,7 @@
              <h4> Filtered by: {{ listFilter }}</h4>
            </div>
       </div>
-      <div class='table-responsive'>
+      <div class='table-responsive' >
           <table class='table' *ngIf='items && items.length'>
             <thead>
               <tr>
@@ -33,9 +33,9 @@
               </tr>
             </thead>
             <tbody>
-                <tr *ngFor='let item of filteredItems'>
+                <tr *ngFor='let item of items'>
                     <td>
-                        <img *ngIf='showImage' [src] = 'item.imageUrl' [title] = 'item.itemName' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
+                        <img *ngIf='showImage' [src] = 'item.itemImageUrl' [title] = 'item.itemName' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
                     </td>
                     <td>
                         <a [routerLink]="['/chefItems', item.itemId]">
