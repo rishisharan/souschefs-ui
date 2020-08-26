@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Items } from './items';
+import { Item } from 'src/app/models/item';
 import { ItemService } from 'src/app/services/item.service';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { ItemComponent } from 'src/app/components/item/item.component';
+import { AddItemComponent } from 'src/app/components/add-item/add-item.component';
 
 @Component({
   selector: 'app-item-list',
@@ -15,22 +15,24 @@ export class ItemListComponent implements OnInit {
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = false;
-  filteredItems: Items[];
+  filteredItems: Item[];
   _listFilter: string;
 //   private _itemService;
 
   get listFilter(): string{
     return this._listFilter;
   }
+
   set listFilter(value: string){
     this._listFilter = value;
     this.filteredItems = this.listFilter ? this.performFilter(this.listFilter) : this.items;
   }
 
-  items: Items[] = [];
+  items: Item[] = [];
+  private results: Item[];
 
   ngOnInit(): void {
-    this.items = this.itemService.getItems();
+    this.getChefItems(2);
     this.filteredItems = this.items;
   }
 
@@ -38,9 +40,9 @@ export class ItemListComponent implements OnInit {
     this.showImage = !this.showImage;
   }
 
-  performFilter(filterBy: string): Items[]{
+  performFilter(filterBy: string): Item[]{
     filterBy = filterBy.toLocaleLowerCase();
-    return this.items.filter((items: Items) => items.itemName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    return this.items.filter((items: Item) => items.itemName.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
   constructor(private itemService: ItemService,
@@ -57,6 +59,34 @@ export class ItemListComponent implements OnInit {
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;
       dialogConfig.width = "60%";
-      this.dialog.open(ItemComponent,dialogConfig);
+      this.dialog.open(AddItemComponent,dialogConfig);
     }
+
+   private async getChefItems(id){
+//         this.itemService.getItemsByChefId(id)
+//           .subscribe(data => {
+//                 this.items = data;
+//             },
+//             error => {
+//               console.log(error);
+//             });
+        const promise = await this.itemService.getItemsByChefId(2).toPromise();
+//           console.log(promise);
+//
+//           promise.then((data)=>{
+//               this.items = data;
+//             console.log("Promise resolved with: " + JSON.stringify(data));
+//           }).catch((error)=>{
+//             console.log("Promise rejected with " + JSON.stringify(error));
+//           });
+      this.items = promise;
+      console.log("CBD");
+      console.log(this.items);
+
+   }
+
+   setResultData(item: Item[]){
+      this.items = item;
+         console.log(this.items);
+   }
 }

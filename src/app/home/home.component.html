@@ -1,22 +1,49 @@
-<div class="content" fxLayout="row wrap" >
-  <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let item of items">
+<mat-grid-list cols="2" rowHeight="1:1">
 
-    <mat-card  class="items-card">
-      <mat-card-header>
-        <img mat-card-avatar src="assets/images/Chef.jpg">
-        <mat-card-title> </mat-card-title>
-        <mat-card-subtitle>Chef</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="assets/images/italian.jpeg">
-      <mat-card-content>
-        <p>
-          {{item.itemName}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <a href="#" mat-button><mat-icon >favorite</mat-icon></a>
-        <a href="#" mat-button><mat-icon >share</mat-icon></a>
-      </mat-card-actions>
+  <mat-grid-tile *ngFor="let item of items" class="example-card" >
+   <mat-card  style="margin-top:10px;" >
+  <mat-card-header>
+    <img mat-card-avatar src="assets/images/Chef.jpg">
+    <mat-card-title> {{item.chef.firstName}} {{item.chef.lastName}}</mat-card-title>
+    <mat-card-subtitle>Chef</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="assets/images/italian.jpeg">
+  <mat-card-content>
+    <p>
+      {{item.itemName}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
     </mat-card>
-  </div>
+  </mat-grid-tile>
+</mat-grid-list>
+<!--
+<div style="padding: 13px;">
+    <mat-spinner *ngIf="items.length === 0"></mat-spinner>
+
+    <mat-card *ngFor="let item of items" style="margin-top:10px;">
+        <mat-card-header>
+            <mat-card-title>{{item.itemName}}</mat-card-title>
+            <mat-card-subtitle>{{item.chef.firstName}} {{item.chef.lastName}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                {{item.itemName}}
+            </p>
+            <img mat-card-image style="height:10%; width: 10%;" src="assets/images/leaf_rake.png" />
+        </mat-card-content>
+        <mat-card-actions>
+      <button mat-button> Buy product</button>
+    </mat-card-actions>
+    </mat-card>
 </div>
+
+<div class="container">
+    <header class="jumbotron">
+      <p>{{ content }}</p>
+    </header>
+</div>
+-->
