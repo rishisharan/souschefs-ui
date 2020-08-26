@@ -12,16 +12,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private itemsService: ItemsService) { }
 
-  // ngOnInit(): void {
-  //   // this.userService.getPublicContent().subscribe(
-  //   //   data => {
-  //   //     this.content = data;
-  //   //   },
-  //   //   err => {
-  //   //     this.content = JSON.parse(err.error).message;
-  //   //   }
-  //   // );
-  // }
   ngOnInit(): void {
     this.itemsService.getPublicContent().subscribe(
       data => {
