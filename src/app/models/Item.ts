@@ -1,9 +1,9 @@
 export class Item {
-
-       itemId: number;
-       itemName: string;
+       chef: number;
        itemDescription: string;
+       itemId: number;
        itemImageUrl: string;
+       itemName: string;
        itemPrice: number;
        starRating: number;
 }
