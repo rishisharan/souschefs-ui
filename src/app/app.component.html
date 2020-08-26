@@ -1,41 +1,59 @@
- <div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">Souschef</a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Dashboard</a>
-      </li>
-      <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
-      </li>
-      <li class="nav-item" *ngIf="showModeratorBoard">
-        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
-      </li>
-      <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Be a chef</a>
-      </li>
-    </ul>
+<div>
+  <mat-toolbar >
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div fxShow="true" fxHide.lt-md fxFlex fxLayout>
+        <!-- The following menu items will be hidden on both SM and XS screen sizes-->
+        <div fxFlex>
+        </div>
+        <div fxFlex fxLayoutAlign="center center">
+          <a href="#" mat-button class = "companyName">SousChef</a>
+        </div>
+        <div fxFlex fxLayoutAlign="flex-end center">
+          <button mat-icon-button matTooltip="Switch Apps">
+            <mat-icon>apps</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Notifications">
+            <mat-icon>notifications</mat-icon>
+          </button>
+          <button mat-icon-button *ngIf="!isLoggedIn" matTooltip="SignIn" routerLink="login">
+            <mat-icon>account_circle</mat-icon>
+          </button>
+          <div *ngIf="isLoggedIn">
+            <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="accountMenu">
+              <mat-icon>account_circle</mat-icon>
+            </button>
+            <mat-menu #accountMenu [overlapTrigger]="false" yPosition="below">
+              <button mat-menu-item routerLink="profile">
+                <mat-icon>person</mat-icon><span>{{ userName }}</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>help</mat-icon><span>Help</span>
+              </button>
+              <mat-divider></mat-divider>
+              <button mat-menu-item (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>Logout
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
-      </li>
-    </ul>
-
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ userName }}</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
-      </li>
-    </ul>
-  </nav>
-
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+        <a href="#" mat-list-item><mat-icon >shopping_cart</mat-icon></a>
+        <a href="#" mat-list-item><mat-icon >account_circle</mat-icon></a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!--in here all the content must reside. We will add a navigation header as well-->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

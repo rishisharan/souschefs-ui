@@ -1,16 +1,11 @@
-.example-card {
-  max-width: 400px;
+.mat-icon,.mat-icon-button,.mat-button{
+ background-color: white ;
+ color:#708090 !important;
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+a, a:hover {
+    color: white;
+    text-decoration: none;
 }
 
 
-.collapse-content .fa.fa-heart:hover {
-  color: #f44336 !important;
-}
-.collapse-content .fa.fa-share-alt:hover {
-  color: #0d47a1 !important;
-}
