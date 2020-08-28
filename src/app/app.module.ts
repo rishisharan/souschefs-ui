@@ -24,13 +24,18 @@ import { FormsModule }    from '@angular/forms';
 import { ItemListComponent } from './components/item-list/item-list.component';
 import { StarComponent } from './components/shared/star/star.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatRadioModule } from '@angular/material/radio';
 import { ItemService } from './services/item.service';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MaterialModule } from "./material/material.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatFileUploadModule } from 'mat-file-upload';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { CommonModule } from '@angular/common';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -63,7 +68,12 @@ import { MatFileUploadModule } from 'mat-file-upload';
     MatGridListModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule,
+    CommonModule
 
   ],
   providers: [ ItemService, authInterceptorProviders ],
