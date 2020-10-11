@@ -1,26 +1,26 @@
-<div>
-  <mat-toolbar >
+<mat-toolbar>
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
+
+      <div fxShow="true" fxHide.gt-sm fxFlex fxLayout>
+        <div fxFlex fxLayoutAlign="center center">
+          <a href="#" mat-button class="title">SOUS-CHEF</a>
+        </div>
+      </div>
+
       <div fxShow="true" fxHide.lt-md fxFlex fxLayout>
         <!-- The following menu items will be hidden on both SM and XS screen sizes-->
         <div fxFlex>
+          <a href="#" mat-button class="title">SOUS-CHEF</a>
         </div>
         <div fxFlex fxLayoutAlign="center center">
-          <a href="#" mat-button class = "companyName">SousChef</a>
+
         </div>
         <div fxFlex fxLayoutAlign="flex-end center">
-          <button mat-icon-button matTooltip="Switch Apps">
-            <mat-icon>apps</mat-icon>
-          </button>
-          <button mat-icon-button matTooltip="Notifications">
-            <mat-icon>notifications</mat-icon>
-          </button>
-          <button mat-icon-button *ngIf="!isLoggedIn" matTooltip="SignIn" routerLink="login">
-            <mat-icon>account_circle</mat-icon>
-          </button>
+          <a mat-button *ngIf="!isLoggedIn"  routerLink="login">Log In</a>
+          <button type="button" class="btn btn-primary" routerLink="register" *ngIf="!isLoggedIn">Create Account</button>
           <div *ngIf="isLoggedIn">
             <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="accountMenu">
               <mat-icon>account_circle</mat-icon>
@@ -46,14 +46,29 @@
   <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav>
       <mat-nav-list>
-        <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
-        <a href="#" mat-list-item><mat-icon >shopping_cart</mat-icon> <span>Cart</span></a>
-        <a href="#" mat-list-item><mat-icon >account_circle</mat-icon> <span>Account</span></a>
+        <mat-divider></mat-divider>
+        <a mat-flat-button (click)="sidenav.toggle()">Close</a>
+        <mat-divider></mat-divider>
+        <a mat-flat-button  *ngIf="!isLoggedIn"  routerLink="login">Log In</a>
+        <mat-divider></mat-divider>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+        <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+
       </mat-nav-list>
     </mat-sidenav>
+
     <mat-sidenav-content>
       <!--in here all the content must reside. We will add a navigation header as well-->
+      <div class="background">
       <router-outlet></router-outlet>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
-</div>
+
+
+
+
+
+
+
+
