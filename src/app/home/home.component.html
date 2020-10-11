@@ -1,7 +1,7 @@
-<div class="content" fxLayout="row wrap" >
-  <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let item of items">
-
-    <mat-card  class="items-card">
+<div class="container">
+  <div  fxLayout="row wrap" fxLayoutGap="10px" >
+    <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let item of items">
+      <mat-card  class="items-card">
       <mat-card-header>
         <img mat-card-avatar src="assets/images/Chef.jpg">
         <mat-card-title> </mat-card-title>
@@ -18,5 +18,8 @@
         <a href="#" mat-button><mat-icon >share</mat-icon></a>
       </mat-card-actions>
     </mat-card>
-  </div>
+   </div>
+ </div>
 </div>
+
+
