@@ -1,54 +1,28 @@
 import { Injectable } from '@angular/core';
-// import { Items } from 'src/app/models/items/items';
-// import { Items } from 'src/app/components/item-list/items';
+import { ApplicationUrls } from 'src/app/classesAndInterfaces/ApplicationUrls';
+import { CommonUtils } from 'src/app/components/shared/utils/common-utils';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Item } from 'src/app/models/item';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
-// import { HttpClient } from '@angular/common/http';
-// import 'rxjs/add/operator/map';
+import { catchError } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
 @Injectable({
     providedIn: 'root'
 })
 export class ItemService {
 
-//     private baseUrl = 'http://localhost:9090/api/createItem/2/item';
+
     private baseUrl = 'http://localhost:9090/api';
+    private options  = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     item: Item = new Item();
     employeeList: any;
 
     constructor(private http: HttpClient){}
 
-//     getItems(): Item[]
-//     {
-//       return [
-//                    {
-//                      "itemId": 1,
-//                      "itemName": "Leaf Rake",
-//                      "itemDescription": "Leaf rake with 48-inch wooden handle.",
-//                      "itemImageUrl": "assets/images/leaf_rake.png",
-//                      "itemPrice": 19.95,
-//                      "starRating": 3.2
-//                    },
-//                    {
-//                      "itemId": 2,
-//                      "itemName": "Garden Cart",
-//                      "itemDescription": "Leaf rake with 48-inch wooden handle.",
-//                      "itemImageUrl": "assets/images/garden_cart.png",
-//                      "itemPrice": 32.99,
-//                      "starRating": 4.2
-//                    },
-//                    {
-//                      "itemId": 5,
-//                      "itemName": "Hammer",
-//                       "itemDescription": "Leaf rake with 48-inch wooden handle.",
-//                      "itemImageUrl": "assets/images/garden_cart.png",
-//                      "itemPrice": 8.9,
-//                      "starRating": 4.8
-//                    }
-//                  ];
-//     }
+    getItems(): Observable<any>{
+      return this.http.get(ApplicationUrls.getItems(), this.options).pipe(catchError(CommonUtils.handleError));
+    }
 
     form: FormGroup = new FormGroup({
         $key: new FormControl(null),

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Item } from 'src/app/models/item';
+import { ItemService } from 'src/app/services/item.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,21 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  items: string;
+  items: Array<Item>;
 
-  constructor() { }
+  constructor( private itemService: ItemService) { }
 
-  // ngOnInit(): void {
-  //   // this.userService.getPublicContent().subscribe(
-  //   //   data => {
-  //   //     this.content = data;
-  //   //   },
-  //   //   err => {
-  //   //     this.content = JSON.parse(err.error).message;
-  //   //   }
-  //   // );
-  // }
   ngOnInit(): void {
+    this.itemService.getItems()
+      .subscribe( (response: any) => {
+          //add spinner logic
+          //add view logic
+      });
   }
 
 }
